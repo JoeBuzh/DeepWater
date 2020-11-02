@@ -1,0 +1,19 @@
+2020-10-23 15:49:44.148501: W tensorflow/stream_executor/platform/default/dso_loader.cc:59] Could not load dynamic library 'libcudart.so.10.1'; dlerror: libcudart.so.10.1: cannot open shared object file: No such file or directory; LD_LIBRARY_PATH: /public/software/pgi/linux86-64/10.2/lib:/public/software/intel/impi/4.1.0.024/intel64/lib:/public/software/intel/composer_xe_2011_sp1.7.256/compiler/lib/intel64:/public/software/intel/composer_xe_2011_sp1.7.256/compiler/lib/intel64:/public/software/intel/composer_xe_2011_sp1.7.256/mkl/lib/intel64:/public/software/intel/composer_xe_2011_sp1.7.256/compiler/lib/intel64:/public/software/intel/composer_xe_2011_sp1.7.256/compiler/lib/intel64:/public/software/intel/composer_xe_2011_sp1.7.256/mkl/lib/intel64:/usr/local:/usr/lib:/lib:/lib64:/usr/lib64:/usr/local/lib64:/usr/local/lib:/usr/local/grads/lib:/public/software/intel/impi/4.1.0.024/lib:/public/software/intel/impi/4.1.0.024/intel64/lib:/public/software/intel/composer_xe_2011_sp1.7.256/debugger/lib/intel64:/public/software/intel/composer_xe_2011_sp1.7.256/mpirt/lib/intel64:/public/software/intel/composer_xe_2011_sp1.7.256/debugger/lib/intel64:/public/software/intel/composer_xe_2011_sp1.7.256/mpirt/lib/intel64:/public/software/intel/composer_xe_2011_sp1.7.256/debugger/lib/intel64:/public/software/intel/impi/4.1.0.024/intel64/lib:/public/software/intel/impi/4.1.0.024/mic/lib
+2020-10-23 15:49:44.149873: I tensorflow/stream_executor/cuda/cudart_stub.cc:29] Ignore above cudart dlerror if you do not have a GPU set up on your machine.
+INFO:fbprophet:Disabling yearly seasonality. Run prophet with yearly_seasonality=True to override this.
+Initial log joint probability = -29.9759
+    Iter      log prob        ||dx||      ||grad||       alpha      alpha0  # evals  Notes 
+      99       80.9186    0.00019791       97.2558           1           1      124   
+    Iter      log prob        ||dx||      ||grad||       alpha      alpha0  # evals  Notes 
+     199       81.7031   6.40117e-07       93.8024      0.1664      0.1664      248   
+    Iter      log prob        ||dx||      ||grad||       alpha      alpha0  # evals  Notes 
+     231       81.7035   7.87247e-09       90.3717      0.3157      0.3157      287   
+Optimization terminated normally: 
+  Convergence detected: absolute parameter change was below tolerance
+INFO:utils.LogUtils:Forecast [南溪浮宫桥] [2020/01/01 04] [tn]done.
+INFO:utils.LogUtils:Insert [南溪浮宫桥] [2020/01/01 04] [tn] forecast data done.
+INFO:utils.LogUtils:[南溪浮宫桥] close session done.
+write 2020-01-01 04:00:00 Fbprophet data done.
+56/mpirt/lib/intel64:/public/software/intel/composer_xe_2011_sp1.7.256/debugger/lib/intel64:/public/software/intel/composer_xe_2011_sp1.7.256/mpirt/lib/intel64:/public/software/intel/composer_xe_2011_sp1.7.256/debugger/lib/intel64:/public/software/intel/impi/4.1.0.024/intel64/lib:/public/software/intel/impi/4.1.0.024/mic/lib
+2020-10-23 15:50:01.802080: W tensorflow/stream_executor/cuda/cuda_driver.cc:312] failed call to cuInit: UNKNOWN ERROR (303)
+2020-10-23 15:50:01.802649: I tensorflow/stream_executor/cuda/cuda_diagnostics.cc:156] kernel driver does not appear to be running on this host (node7): /proc/driver/nvidia/version does not exist

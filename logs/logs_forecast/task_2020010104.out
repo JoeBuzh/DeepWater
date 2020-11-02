@@ -1,0 +1,7 @@
+Traceback (most recent call last):
+  File "run_forecast.py", line 14, in <module>
+    from src.DataForecast.run import forecast_arima
+  File "../src/DataForecast/run.py", line 12
+    os.environ[“CUDA_DEVICE_ORDER”] = “PCI_BUS_ID”
+                                 ^
+SyntaxError: invalid character in identifier

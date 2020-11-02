@@ -1,0 +1,67 @@
+Traceback (most recent call last):
+  File "/public/home/buzh/test_env2/miniconda3/lib/python3.8/site-packages/sqlalchemy/engine/base.py", line 1276, in _execute_context
+    self.dialect.do_execute(
+  File "/public/home/buzh/test_env2/miniconda3/lib/python3.8/site-packages/sqlalchemy/engine/default.py", line 593, in do_execute
+    cursor.execute(statement, parameters)
+sqlite3.OperationalError: disk I/O error
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "run_forecast.py", line 14, in <module>
+    from src.DataForecast.run import forecast_arima, forecast_gru
+  File "../src/DataForecast/run.py", line 28, in <module>
+    from dao.orm.SQLite_dynamic import orm, ObsDataQcLinear
+  File "../dao/orm/SQLite_dynamic.py", line 28, in <module>
+    class ObsDataRaw(Base):
+  File "../dao/orm/SQLite_dynamic.py", line 30, in ObsDataRaw
+    __table__ = Table(__tablename__, orm.matedata, autoload=True, autoload_with=orm.engine)
+  File "<string>", line 2, in __new__
+  File "/public/home/buzh/test_env2/miniconda3/lib/python3.8/site-packages/sqlalchemy/util/deprecations.py", line 139, in warned
+    return fn(*args, **kwargs)
+  File "/public/home/buzh/test_env2/miniconda3/lib/python3.8/site-packages/sqlalchemy/sql/schema.py", line 560, in __new__
+    metadata._remove_table(name, schema)
+  File "/public/home/buzh/test_env2/miniconda3/lib/python3.8/site-packages/sqlalchemy/util/langhelpers.py", line 68, in __exit__
+    compat.raise_(
+  File "/public/home/buzh/test_env2/miniconda3/lib/python3.8/site-packages/sqlalchemy/util/compat.py", line 182, in raise_
+    raise exception
+  File "/public/home/buzh/test_env2/miniconda3/lib/python3.8/site-packages/sqlalchemy/sql/schema.py", line 555, in __new__
+    table._init(name, metadata, *args, **kw)
+  File "/public/home/buzh/test_env2/miniconda3/lib/python3.8/site-packages/sqlalchemy/sql/schema.py", line 644, in _init
+    self._autoload(
+  File "/public/home/buzh/test_env2/miniconda3/lib/python3.8/site-packages/sqlalchemy/sql/schema.py", line 667, in _autoload
+    autoload_with.run_callable(
+  File "/public/home/buzh/test_env2/miniconda3/lib/python3.8/site-packages/sqlalchemy/engine/base.py", line 2214, in run_callable
+    return conn.run_callable(callable_, *args, **kwargs)
+  File "/public/home/buzh/test_env2/miniconda3/lib/python3.8/site-packages/sqlalchemy/engine/base.py", line 1653, in run_callable
+    return callable_(self, *args, **kwargs)
+  File "/public/home/buzh/test_env2/miniconda3/lib/python3.8/site-packages/sqlalchemy/engine/default.py", line 469, in reflecttable
+    return insp.reflecttable(
+  File "/public/home/buzh/test_env2/miniconda3/lib/python3.8/site-packages/sqlalchemy/engine/reflection.py", line 665, in reflecttable
+    for col_d in self.get_columns(
+  File "/public/home/buzh/test_env2/miniconda3/lib/python3.8/site-packages/sqlalchemy/engine/reflection.py", line 391, in get_columns
+    col_defs = self.dialect.get_columns(
+  File "<string>", line 2, in get_columns
+  File "/public/home/buzh/test_env2/miniconda3/lib/python3.8/site-packages/sqlalchemy/engine/reflection.py", line 52, in cache
+    ret = fn(self, con, *args, **kw)
+  File "/public/home/buzh/test_env2/miniconda3/lib/python3.8/site-packages/sqlalchemy/dialects/sqlite/base.py", line 1694, in get_columns
+    info = self._get_table_pragma(
+  File "/public/home/buzh/test_env2/miniconda3/lib/python3.8/site-packages/sqlalchemy/dialects/sqlite/base.py", line 2153, in _get_table_pragma
+    cursor = connection.execute(statement)
+  File "/public/home/buzh/test_env2/miniconda3/lib/python3.8/site-packages/sqlalchemy/engine/base.py", line 1003, in execute
+    return self._execute_text(object_, multiparams, params)
+  File "/public/home/buzh/test_env2/miniconda3/lib/python3.8/site-packages/sqlalchemy/engine/base.py", line 1172, in _execute_text
+    ret = self._execute_context(
+  File "/public/home/buzh/test_env2/miniconda3/lib/python3.8/site-packages/sqlalchemy/engine/base.py", line 1316, in _execute_context
+    self._handle_dbapi_exception(
+  File "/public/home/buzh/test_env2/miniconda3/lib/python3.8/site-packages/sqlalchemy/engine/base.py", line 1510, in _handle_dbapi_exception
+    util.raise_(
+  File "/public/home/buzh/test_env2/miniconda3/lib/python3.8/site-packages/sqlalchemy/util/compat.py", line 182, in raise_
+    raise exception
+  File "/public/home/buzh/test_env2/miniconda3/lib/python3.8/site-packages/sqlalchemy/engine/base.py", line 1276, in _execute_context
+    self.dialect.do_execute(
+  File "/public/home/buzh/test_env2/miniconda3/lib/python3.8/site-packages/sqlalchemy/engine/default.py", line 593, in do_execute
+    cursor.execute(statement, parameters)
+sqlalchemy.exc.OperationalError: (sqlite3.OperationalError) disk I/O error
+[SQL: PRAGMA main.table_xinfo("obs_data_raw_4h")]
+(Background on this error at: http://sqlalche.me/e/13/e3q8)

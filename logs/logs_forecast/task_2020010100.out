@@ -1,0 +1,27 @@
+2020-10-23 15:22:20.456454: W tensorflow/stream_executor/platform/default/dso_loader.cc:59] Could not load dynamic library 'libcudart.so.10.1'; dlerror: libcudart.so.10.1: cannot open shared object file: No such file or directory; LD_LIBRARY_PATH: /public/software/pgi/linux86-64/10.2/lib:/public/software/intel/impi/4.1.0.024/intel64/lib:/public/software/intel/impi/4.1.0.024/intel64/lib:/public/software/intel/composer_xe_2011_sp1.7.256/compiler/lib/intel64:/public/software/intel/composer_xe_2011_sp1.7.256/compiler/lib/intel64:/public/software/intel/composer_xe_2011_sp1.7.256/mkl/lib/intel64:/public/software/intel/impi/4.1.0.024/intel64/lib:/public/software/intel/composer_xe_2011_sp1.7.256/compiler/lib/intel64:/public/software/intel/composer_xe_2011_sp1.7.256/compiler/lib/intel64:/public/software/intel/composer_xe_2011_sp1.7.256/mkl/lib/intel64:/usr/local:/usr/lib:/lib:/lib64:/usr/lib64:/usr/local/lib64:/usr/local/lib:/usr/local/grads/lib:/public/software/intel/impi/4.1.0.024/lib:/public/software/intel/impi/4.1.0.024/intel64/lib:/public/software/intel/composer_xe_2011_sp1.7.256/debugger/lib/intel64:/public/software/intel/composer_xe_2011_sp1.7.256/mpirt/lib/intel64:/public/software/intel/composer_xe_2011_sp1.7.256/debugger/lib/intel64:/public/software/intel/composer_xe_2011_sp1.7.256/mpirt/lib/intel64:/public/software/intel/composer_xe_2011_sp1.7.256/debugger/lib/intel64:/public/software/intel/impi/4.1.0.024/intel64/lib:/public/software/intel/impi/4.1.0.024/mic/lib
+2020-10-23 15:22:20.457323: I tensorflow/stream_executor/cuda/cudart_stub.cc:29] Ignore above cudart dlerror if you do not have a GPU set up on your machine.
+Raw ADF: 0.008339619739448675
+p=0
+adf=(-3.486538494054418, 0.008339619739448675, 3, 177, {'1%': -3.467845319799907, '5%': -2.878011745497439, '10%': -2.575551186759871}, 338.274633847686)
+(1, 1)
+ARIMA Model: p=1 d=1 q=1
+                           tn
+time                         
+2019-12-31 16:00:00  3.673667
+2019-12-31 20:00:00  3.691556
+2020-01-01 00:00:00  3.709444
+*** 2020-01-01 00:00:00 Forecast ***
+[3.70720734 3.71299806 3.71837571 3.72377462 3.72917243 3.7345703
+ 3.73996817 3.74536604 3.7507639  3.75616177 3.76155964 3.7669575
+ 3.77235537 3.77775324 3.7831511  3.78854897 3.79394684 3.79934471
+ 3.80474257 3.81014044 3.81553831 3.82093617 3.82633404 3.83173191
+ 3.83712977 3.84252764 3.84792551 3.85332337 3.85872124 3.86411911
+ 3.86951697 3.87491484 3.88031271 3.88571057 3.89110844 3.89650631
+ 3.90190417 3.90730204 3.91269991 3.91809777 3.92349564 3.92889351]
+write 2020-01-01 00:00:00 Arima data done.
+eries.py", line 4200, in apply
+    mapped = lib.map_infer(values, f, convert=convert_dtype)
+  File "pandas/_libs/lib.pyx", line 2402, in pandas._libs.lib.map_infer
+  File "../src/DataForecast/dl_model.py", line 26, in <lambda>
+    time_stp = data['time'].apply(lambda x: datetime.strptime(x, "%Y-%m-%d %H:%M:00")).map(datetime.timestamp)
+TypeError: strptime() argument 1 must be str, not Timestamp

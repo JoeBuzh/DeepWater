@@ -1,0 +1,4 @@
+cd /public/home/buzh/water/DeepWater/scripts; /public/home/buzh/env/miniconda3/bin/python run_forecast.py -n '长汀美溪桥' -m 'Arima' -i 'tn' -s '2020010412' -e '2020010412' >& /public/home/buzh/water/DeepWater/logs/logs_forecast/task_2020010412.out
+cd /public/home/buzh/water/DeepWater/scripts; /public/home/buzh/env/miniconda3/bin/python run_forecast.py -n '长汀美溪桥' -m 'Fbprophet' -i 'tn' -s '2020010412' -e '2020010412' >& /public/home/buzh/water/DeepWater/logs/logs_forecast/task_2020010412.out
+cd /public/home/buzh/water/DeepWater/scripts; /public/home/buzh/env/miniconda3/bin/python run_forecast.py -n '长汀美溪桥' -m 'LSTM' -i 'tn' -s '2020010412' -e '2020010412' >& /public/home/buzh/water/DeepWater/logs/logs_forecast/task_2020010412.out
+cd /public/home/buzh/water/DeepWater/scripts; /public/home/buzh/env/miniconda3/bin/python run_forecast.py -n '长汀美溪桥' -m 'GRU' -i 'tn' -s '2020010412' -e '2020010412' >& /public/home/buzh/water/DeepWater/logs/logs_forecast/task_2020010412.out

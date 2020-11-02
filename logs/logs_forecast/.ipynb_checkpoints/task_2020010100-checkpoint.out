@@ -1,0 +1,78 @@
+2020-10-23 14:36:54.194924: W tensorflow/stream_executor/platform/default/dso_loader.cc:59] Could not load dynamic library 'libcudart.so.10.1'; dlerror: libcudart.so.10.1: cannot open shared object file: No such file or directory; LD_LIBRARY_PATH: /public/software/pgi/linux86-64/10.2/lib:/public/software/intel/impi/4.1.0.024/intel64/lib:/public/software/intel/impi/4.1.0.024/intel64/lib:/public/software/intel/composer_xe_2011_sp1.7.256/compiler/lib/intel64:/public/software/intel/composer_xe_2011_sp1.7.256/compiler/lib/intel64:/public/software/intel/composer_xe_2011_sp1.7.256/mkl/lib/intel64:/public/software/intel/impi/4.1.0.024/intel64/lib:/public/software/intel/composer_xe_2011_sp1.7.256/compiler/lib/intel64:/public/software/intel/composer_xe_2011_sp1.7.256/compiler/lib/intel64:/public/software/intel/composer_xe_2011_sp1.7.256/mkl/lib/intel64:/usr/local:/usr/lib:/lib:/lib64:/usr/lib64:/usr/local/lib64:/usr/local/lib:/usr/local/grads/lib:/public/software/intel/impi/4.1.0.024/lib:/public/software/intel/impi/4.1.0.024/intel64/lib:/public/software/intel/composer_xe_2011_sp1.7.256/debugger/lib/intel64:/public/software/intel/composer_xe_2011_sp1.7.256/mpirt/lib/intel64:/public/software/intel/composer_xe_2011_sp1.7.256/debugger/lib/intel64:/public/software/intel/composer_xe_2011_sp1.7.256/mpirt/lib/intel64:/public/software/intel/composer_xe_2011_sp1.7.256/debugger/lib/intel64:/public/software/intel/impi/4.1.0.024/intel64/lib:/public/software/intel/impi/4.1.0.024/mic/lib
+2020-10-23 14:36:54.196085: I tensorflow/stream_executor/cuda/cudart_stub.cc:29] Ignore above cudart dlerror if you do not have a GPU set up on your machine.
+Raw ADF: 0.008339619739448675
+p=0
+adf=(-3.486538494054418, 0.008339619739448675, 3, 177, {'1%': -3.467845319799907, '5%': -2.878011745497439, '10%': -2.575551186759871}, 338.274633847686)
+(1, 1)
+ARIMA Model: p=1 d=1 q=1
+                           tn
+time                         
+2019-12-31 16:00:00  3.673667
+2019-12-31 20:00:00  3.691556
+2020-01-01 00:00:00  3.709444
+*** 2020-01-01 00:00:00 Forecast ***
+[3.70720734 3.71299806 3.71837571 3.72377462 3.72917243 3.7345703
+ 3.73996817 3.74536604 3.7507639  3.75616177 3.76155964 3.7669575
+ 3.77235537 3.77775324 3.7831511  3.78854897 3.79394684 3.79934471
+ 3.80474257 3.81014044 3.81553831 3.82093617 3.82633404 3.83173191
+ 3.83712977 3.84252764 3.84792551 3.85332337 3.85872124 3.86411911
+ 3.86951697 3.87491484 3.88031271 3.88571057 3.89110844 3.89650631
+ 3.90190417 3.90730204 3.91269991 3.91809777 3.92349564 3.92889351]
+Traceback (most recent call last):
+  File "/public/home/buzh/env/miniconda3/lib/python3.7/site-packages/sqlalchemy/engine/base.py", line 1278, in _execute_context
+    cursor, statement, parameters, context
+  File "/public/home/buzh/env/miniconda3/lib/python3.7/site-packages/sqlalchemy/engine/default.py", line 593, in do_execute
+    cursor.execute(statement, parameters)
+psycopg2.errors.InsufficientPrivilege: permission denied for sequence forecast_arima_id_seq
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "run_forecast.py", line 46, in <module>
+    main()
+  File "run_forecast.py", line 29, in main
+    forecast_arima(station=cfp.name, index=cfp.index, start=cfp.start, end=cfp.end)
+  File "../src/DataForecast/run.py", line 354, in forecast_arima
+    session, data=this_forecast, this_time=start, station_name=station, index=index
+  File "../src/DataForecast/run.py", line 209, in insert_arima
+    session.flush()
+  File "/public/home/buzh/env/miniconda3/lib/python3.7/site-packages/sqlalchemy/orm/session.py", line 2523, in flush
+    self._flush(objects)
+  File "/public/home/buzh/env/miniconda3/lib/python3.7/site-packages/sqlalchemy/orm/session.py", line 2664, in _flush
+    transaction.rollback(_capture_exception=True)
+  File "/public/home/buzh/env/miniconda3/lib/python3.7/site-packages/sqlalchemy/util/langhelpers.py", line 69, in __exit__
+    exc_value, with_traceback=exc_tb,
+  File "/public/home/buzh/env/miniconda3/lib/python3.7/site-packages/sqlalchemy/util/compat.py", line 178, in raise_
+    raise exception
+  File "/public/home/buzh/env/miniconda3/lib/python3.7/site-packages/sqlalchemy/orm/session.py", line 2624, in _flush
+    flush_context.execute()
+  File "/public/home/buzh/env/miniconda3/lib/python3.7/site-packages/sqlalchemy/orm/unitofwork.py", line 422, in execute
+    rec.execute(self)
+  File "/public/home/buzh/env/miniconda3/lib/python3.7/site-packages/sqlalchemy/orm/unitofwork.py", line 589, in execute
+    uow,
+  File "/public/home/buzh/env/miniconda3/lib/python3.7/site-packages/sqlalchemy/orm/persistence.py", line 245, in save_obj
+    insert,
+  File "/public/home/buzh/env/miniconda3/lib/python3.7/site-packages/sqlalchemy/orm/persistence.py", line 1136, in _emit_insert_statements
+    statement, params
+  File "/public/home/buzh/env/miniconda3/lib/python3.7/site-packages/sqlalchemy/engine/base.py", line 1014, in execute
+    return meth(self, multiparams, params)
+  File "/public/home/buzh/env/miniconda3/lib/python3.7/site-packages/sqlalchemy/sql/elements.py", line 298, in _execute_on_connection
+    return connection._execute_clauseelement(self, multiparams, params)
+  File "/public/home/buzh/env/miniconda3/lib/python3.7/site-packages/sqlalchemy/engine/base.py", line 1133, in _execute_clauseelement
+    distilled_params,
+  File "/public/home/buzh/env/miniconda3/lib/python3.7/site-packages/sqlalchemy/engine/base.py", line 1318, in _execute_context
+    e, statement, parameters, cursor, context
+  File "/public/home/buzh/env/miniconda3/lib/python3.7/site-packages/sqlalchemy/engine/base.py", line 1512, in _handle_dbapi_exception
+    sqlalchemy_exception, with_traceback=exc_info[2], from_=e
+  File "/public/home/buzh/env/miniconda3/lib/python3.7/site-packages/sqlalchemy/util/compat.py", line 178, in raise_
+    raise exception
+  File "/public/home/buzh/env/miniconda3/lib/python3.7/site-packages/sqlalchemy/engine/base.py", line 1278, in _execute_context
+    cursor, statement, parameters, context
+  File "/public/home/buzh/env/miniconda3/lib/python3.7/site-packages/sqlalchemy/engine/default.py", line 593, in do_execute
+    cursor.execute(statement, parameters)
+sqlalchemy.exc.ProgrammingError: (psycopg2.errors.InsufficientPrivilege) permission denied for sequence forecast_arima_id_seq
+
+[SQL: INSERT INTO forecast_arima (forecast_time, name, param, forecast_0, forecast_1, forecast_2, forecast_3, forecast_4, forecast_5, forecast_6, forecast_7, forecast_8, forecast_9, forecast_10, forecast_11, forecast_12, forecast_13, forecast_14, forecast_15, forecast_16, forecast_17, forecast_18, forecast_19, forecast_20, forecast_21, forecast_22, forecast_23, forecast_24, forecast_25, forecast_26, forecast_27, forecast_28, forecast_29, forecast_30, forecast_31, forecast_32, forecast_33, forecast_34, forecast_35, forecast_36, forecast_37, forecast_38, forecast_39, forecast_40, forecast_41) VALUES (%(forecast_time)s, %(name)s, %(param)s, %(forecast_0)s, %(forecast_1)s, %(forecast_2)s, %(forecast_3)s, %(forecast_4)s, %(forecast_5)s, %(forecast_6)s, %(forecast_7)s, %(forecast_8)s, %(forecast_9)s, %(forecast_10)s, %(forecast_11)s, %(forecast_12)s, %(forecast_13)s, %(forecast_14)s, %(forecast_15)s, %(forecast_16)s, %(forecast_17)s, %(forecast_18)s, %(forecast_19)s, %(forecast_20)s, %(forecast_21)s, %(forecast_22)s, %(forecast_23)s, %(forecast_24)s, %(forecast_25)s, %(forecast_26)s, %(forecast_27)s, %(forecast_28)s, %(forecast_29)s, %(forecast_30)s, %(forecast_31)s, %(forecast_32)s, %(forecast_33)s, %(forecast_34)s, %(forecast_35)s, %(forecast_36)s, %(forecast_37)s, %(forecast_38)s, %(forecast_39)s, %(forecast_40)s, %(forecast_41)s) RETURNING forecast_arima.id]
+[parameters: {'forecast_time': '2020-01-01 00:00:00', 'name': '南溪浮宫桥', 'param': 'tn', 'forecast_0': 3.7072073361565985, 'forecast_1': 3.712998062173971, 'forecast_2': 3.718375714300731, 'forecast_3': 3.723774621230794, 'forecast_4': 3.7291724344905144, 'forecast_5': 3.7345703040252705, 'forecast_6': 3.739968170664383, 'forecast_7': 3.745366037452491, 'forecast_8': 3.750763904232933, 'forecast_9': 3.7561617710137694, 'forecast_10': 3.7615596377945852, 'forecast_11': 3.7669575045754025, 'forecast_12': 3.7723553713562192, 'forecast_13': 3.777753238137036, 'forecast_14': 3.783151104917853, 'forecast_15': 3.7885489716986696, 'forecast_16': 3.7939468384794863, 'forecast_17': 3.799344705260303, 'forecast_18': 3.80474257204112, 'forecast_19': 3.8101404388219366, 'forecast_20': 3.8155383056027534, 'forecast_21': 3.82093617238357, 'forecast_22': 3.826334039164387, 'forecast_23': 3.8317319059452037, 'forecast_24': 3.8371297727260205, 'forecast_25': 3.8425276395068373, 'forecast_26': 3.847925506287654, 'forecast_27': 3.853323373068471, 'forecast_28': 3.8587212398492876, 'forecast_29': 3.8641191066301044, 'forecast_30': 3.869516973410921, 'forecast_31': 3.874914840191738, 'forecast_32': 3.8803127069725547, 'forecast_33': 3.8857105737533715, 'forecast_34': 3.8911084405341883, 'forecast_35': 3.896506307315005, 'forecast_36': 3.901904174095822, 'forecast_37': 3.9073020408766386, 'forecast_38': 3.9126999076574553, 'forecast_39': 3.918097774438272, 'forecast_40': 3.923495641219089, 'forecast_41': 3.9288935079999057}]
+(Background on this error at: http://sqlalche.me/e/13/f405)
